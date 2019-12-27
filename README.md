@@ -29,7 +29,9 @@ ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==192.168.1.216) || (ip.src==19
 
 Please update dictionary key and value. 
 
-Example: ip_filter {}  ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
+Example: ip_filter {} 
+
+ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
          
 iot (**ip_filter)
 
