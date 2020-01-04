@@ -35,4 +35,13 @@ ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
          
 iot (**ip_filter)
 
-##########################################################
+####################### MALEWARE ###########################
+
+Library function name : malware()
+
+Note: Please make sure to creat directory "log_files" on a same working directory and add the Good and infected CSV log files inside for feature extraction. Make sure to name Good1~0.CSV for the non malicious system log files. 
+
+Plese download the sample dataset from the Link below. 
+
+https://drive.google.com/drive/folders/1_mJUvA99cHsE09UxFb1Cpyik3fVaSy0N?usp=sharing
+
