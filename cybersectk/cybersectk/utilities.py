@@ -47,28 +47,28 @@ labelFeature.writelines("Label,IPLength,IPHeaderLength,TTL,\
 
 #################################################################
 def iot (**ip_filter):
-    for original in glob.glob('./*.pcap'):
+    for original in glob.glob('original_pcap/*.pcap'):
         for k in ip_filter.keys():
             os.system("tshark -r " + original + " -w- -Y " + 
                       ip_filter[k] + ">> filtered_pcap/" + k + ".pcap")
 
 #################################################################
-for filteredFile in glob.glob('filtered_pcap/*.pcap'):
-    #print(filteredFile)
-    filename = filteredFile.split('/')[-1]
-    label = filename.replace('.pcap', '')
-    tsharkCommand = "tshark -r " + filteredFile + " -T fields \
-                    -e ip.len -e ip.hdr_len -e ip.ttl \
-                    -e ip.proto -e tcp.srcport -e tcp.dstport -e tcp.seq \
-                    -e tcp.ack -e tcp.window_size_value -e tcp.hdr_len -e tcp.len \
-                    -e tcp.stream -e tcp.urgent_pointer \
-                    -e ip.flags -e ip.id -e ip.checksum -e tcp.flags -e tcp.checksum"
+    for filteredFile in glob.glob('filtered_pcap/*.pcap'):
+        #print(filteredFile)
+        filename = filteredFile.split('/')[-1]
+        label = filename.replace('.pcap', '')
+        tsharkCommand = "tshark -r " + filteredFile + " -T fields \
+                        -e ip.len -e ip.hdr_len -e ip.ttl \
+                        -e ip.proto -e tcp.srcport -e tcp.dstport -e tcp.seq \
+                        -e tcp.ack -e tcp.window_size_value -e tcp.hdr_len -e tcp.len \
+                        -e tcp.stream -e tcp.urgent_pointer \
+                        -e ip.flags -e ip.id -e ip.checksum -e tcp.flags -e tcp.checksum"
 
-    allFeatures = str(  os.popen(tsharkCommand).read()  )
-    allFeatures = allFeatures.replace('\t',',')
-    allFeaturesList = allFeatures.splitlines()
-    for features in allFeaturesList:
-        labelFeature.writelines(label + "," + features + "\n")
+        allFeatures = str(  os.popen(tsharkCommand).read()  )
+        allFeatures = allFeatures.replace('\t',',')
+        allFeaturesList = allFeatures.splitlines()
+        for features in allFeaturesList:
+            labelFeature.writelines(label + "," + features + "\n")
 ###############################################################
 ######################## Malware ##############################
 
