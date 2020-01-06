@@ -57,13 +57,13 @@ Navigate to CyberSecTK-Library-master>cybersectk
 
 Execute the following command before installation to make sure you have all the required packages are installed on your current python distribution.
 
- python setup.py develop
+ # python setup.py develop
  
  If you found some error make sure to install the missing packages. 
  
  Installing the library
 
- python setup.py install
+ # python setup.py install
 
 
 
