@@ -35,6 +35,9 @@ ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
          
 iot (**ip_filter)
 
+NOTE: We need to create two different directories original_pcap and filtered_pcap on a working directory. The source iot pcap file need to be available inside the original_pcap directory. 
+The library uses tshark to extract the features from the given TCP pcap file. Make sure tshark is installed on your system.  
+
 ####################### MALEWARE ###########################
 
 Library function name : malware()
@@ -44,4 +47,23 @@ Note: Please make sure to creat directory "log_files" on a same working director
 Plese download the sample dataset from the Link below. 
 
 https://drive.google.com/drive/folders/1_mJUvA99cHsE09UxFb1Cpyik3fVaSy0N?usp=sharing
+
+###################### Helpful Tips #########################
+
+Download the library, unzip it and run the following command before you install. 
+
+
+Navigate to CyberSecTK-Library-master>cybersectk
+
+Execute the following command before installation to make sure you have all the required packages are installed on your current python distribution.
+
+ python setup.py develop
+ 
+ If you found some error make sure to install the missing packages. 
+ 
+ Installing the library
+
+ python setup.py install
+
+
 
