@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
  
 setup(name='cybersectk',
       version='1.0',
-      url='https://github.com/sumendrabsingh/cybersectk',
+      url='https://github.com/sumendrabsingh/CyberSecTK-Library.git',
       license='MIT',
       author='SumendraBSingh',
       author_email='sumendrasingh@gmail.com',
@@ -18,5 +18,6 @@ setup(name='cybersectk',
             'Programming Language :: Python :: 3.7',
             'Topic :: Software Development :: Libraries :: Python Modules',
         ],
+      python_requires='>=3.7',
       include_package_data=True,
       zip_safe=False)
