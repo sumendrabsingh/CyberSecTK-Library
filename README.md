@@ -3,13 +3,28 @@
  
  ################### WLAN IOT ########################
 
- Library function name : wiot()
+ Library Module name : wiot()
  
+ Example:
+ 
+ from cybersectk.wiot import wiot
+ 
+ wiot()
+ 
+ NOTE: Add the wireless PCAP file in working directory. Enter the PCAP file name when prompt during the exection time. Don't forget to specify the .pcap extension at the end of the file name.
  ################### TCP IOT #########################
 
-Library function name : iot()
+Library Module name : iot()
 
-A python dictionary ip_filter {} is used to filter device specific TCP PCAP files in filtered_pcap directory.
+Example:
+ 
+ from cybersectk.iot import iot
+ 
+ iot()
+ 
+NOTE: We need to create two different directories original_pcap and filtered_pcap in a working directory. The source iot pcap file need to be available inside the original_pcap directory. 
+The library uses tshark to extract the features from the given TCP pcap file. Make sure tshark is installed on your system. 
+A python dictionary ip_filter {} is used to filter device specific TCP PCAP files at the time of execution. The filtered pcap file will be save with its fileted name inside filtered_pcap directory.
 
 Available Dictionary ip_filter keys
 TCP_Mobile
@@ -35,14 +50,17 @@ ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
          
 iot (**ip_filter)
 
-NOTE: We need to create two different directories original_pcap and filtered_pcap on a working directory. The source iot pcap file need to be available inside the original_pcap directory. 
-The library uses tshark to extract the features from the given TCP pcap file. Make sure tshark is installed on your system.  
-
 ####################### MALEWARE ###########################
 
 Library function name : malware()
 
-Note: Please make sure to creat directory "log_files" on a same working directory and add the Good and infected CSV log files inside for feature extraction. Make sure to name Good1~0.CSV for the non malicious system log files. 
+Example:
+ 
+ from cybersectk.malware import malware
+ 
+ malware()
+
+Note: Please make sure to creat directory "log_files" in a same working directory and add the Good and infected CSV log files inside log_files directory for feature extraction. Make sure to name Good1.CSV, Good2.CSV and so on for the non malicious system log files. Please refer to the sample data set for better understanding. 
 
 Plese download the sample dataset from the Link below. 
 
@@ -64,6 +82,6 @@ Execute the following command before installation to make sure you have all the 
  Installing the library
 
  <i> python setup.py install </i>
-
+ 
 
 
