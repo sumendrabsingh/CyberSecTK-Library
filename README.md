@@ -11,7 +11,9 @@
  
  wiot()
  
- NOTE: Add the wireless PCAP file in working directory. Enter the PCAP file name when prompt during the exection time. Don't forget to specify the .pcap extension at the end of the file name.
+ OUTPUT File: IOTwireless.CSV
+ 
+NOTE: Add the wireless PCAP file in working directory. Enter the PCAP file name when prompt during the exection time. Don't forget to specify the .pcap extension at the end of the file name.
  ################### TCP IOT #########################
 
 Library Module name : iot()
@@ -22,6 +24,8 @@ Example:
  
  iot()
  
+OUTPUT File: label_feature_IOT.CSV
+
 NOTE: We need to create two different directories original_pcap and filtered_pcap in a working directory. The source iot pcap file need to be available inside the original_pcap directory. 
 The library uses tshark to extract the features from the given TCP pcap file. Make sure tshark is installed on your system. 
 A python dictionary ip_filter {} is used to filter device specific TCP PCAP files at the time of execution. The filtered pcap file will be save with its fileted name inside filtered_pcap directory.
@@ -59,6 +63,8 @@ Example:
  from cybersectk.malware import malware
  
  malware()
+ 
+ OUTPUT File : DynamicMalwareMatrix.CSV
 
 Note: Please make sure to creat directory "log_files" in a same working directory and add the Good and infected CSV log files inside log_files directory for feature extraction. Make sure to name Good1.CSV, Good2.CSV and so on for the non malicious system log files. Please refer to the sample data set for better understanding. 
 
