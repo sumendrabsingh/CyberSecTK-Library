@@ -31,7 +31,7 @@ Please update dictionary key and value.
 
 Example: ip_filter = {} 
 
-ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
+ip_filter['TCP_Miscellaneous'] = '"tcp && (ip.src==IP_Address)"'
          
 iot (**ip_filter)
 
