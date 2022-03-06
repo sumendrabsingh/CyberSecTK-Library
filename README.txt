@@ -24,12 +24,12 @@ TCP_Miscellaneous
 
 Dictionary key value pair example:
 
-ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==192.168.1.216) || (ip.src==192.168.1.46) || (ip.src==192.168.1.84) \
-                     || (ip.src==192.168.1.91)'"
+ip_filter['TCP_Miscellaneous'] = '"tcp && (ip.src==192.168.1.216) || (ip.src==192.168.1.46) || (ip.src==192.168.1.84) \
+                     || (ip.src==192.168.1.91)"'
 
 Please update dictionary key and value. 
 
-Example: ip_filter {} 
+Example: ip_filter = {} 
 
 ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
          
