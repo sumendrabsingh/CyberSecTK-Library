@@ -150,6 +150,60 @@ https://drive.google.com/drive/folders/1_mJUvA99cHsE09UxFb1Cpyik3fVaSy0N?usp=sha
 |driverclass_31bf3856ad364e35_6 |	Windows security update installation problem.|
 |msil_system	| Security update for .NET framework service.|
 
+######################### PHISH #############################
+
+Library function name : phish(email=None, password=None, server=None, l=False, mailbox=None, process=1)
+    The phish function produces a personal corpus of phishing features 
+    extracted from an IMAP server of the user's choice.
+
+    Example:
+ 
+    from cybersectk.phish import phish
+
+    To list IMAP directories. 
+ 
+        phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', True)
+
+    To process email messages.
+
+        phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
+ 
+    Parameters:
+    email    (str):  Email login. Required.
+    password (str):  Email password. Note, modern email services require app passwords. Required.
+    server   (str):  IMAP server. This method connects via SSL port 993 only. Required.
+    l        (bool): List IMAP mailboxes to console for use with next argument. Required.
+    mailbox  (str):  Mailbox to use. Optional if l = True, else required.
+    process  (int):  Number of emails to process. Default: 1, Max: 100.
+
+    Returns:
+    None
+
+    Output:
+    CSV. File will be placed in current working directory containing various phishing 
+    feature extractions. The filename is dynamic to support multiple runs of this function. 
+    Filename will be a combination of email address provided to function and current 
+    date time stamp. Additionally, each message email processed will be placed in a "msg"
+    folder at the root of the CyberSecTK folder hierarchy. 
+ 
+    NOTE1: GMail, Hotmail/Outlook and Yahoo! Mail all require an "app password". See this link for
+    an example - https://support.google.com/accounts/answer/185833  
+
+    NOTE2: Be sure to review and update the phishing_terms file as required for your effort.
+
+    **Phish Features**
+    > Feature selection is based on preliminary evaluation.
+
+|  Features	| Description | Data Type |
+|---|---|---|
+|Message ID | Unique identifier for a given an email.| String |
+|From |	The 5322.From (also known as the From address or P2 sender) header value.| String |
+|To | The email address in the To header field.| String |
+|Subject | Subject field of the reviewed email.| String |
+|DKIM |	DomainKeys Identified Mail value in Authenication_Header. | String |
+|SPF |	Sender Policy Framework value in Authenication_Header.| String |
+|Anchor_HREF | The URL defined in a given <a> tag.| String |
+|Weight_Gain |	A sum of the value for a given term, or key, defined in the phishing_terms file. | Integer |
 
 ###################### Helpful Tips #########################
 
