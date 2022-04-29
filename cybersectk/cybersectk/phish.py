@@ -52,7 +52,6 @@ def phish(email=None, password=None, server=None, l=False, mailbox=None, process
 
 def main(ema, pwd, srv, l, mlb, prc):
     mail_ids = []
-    # linkparser = LinkParser()
     imap_ssl = connect_to_server(srv)
     mail = login_to_server(ema, pwd, imap_ssl)
     feedback = 'Processing.'
