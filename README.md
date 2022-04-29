@@ -204,7 +204,7 @@ Output:
     date time stamp. Additionally, each message email processed will be placed in a "msg"
     folder at the root of the CyberSecTK folder hierarchy. 
  
-NOTE1: GMail, Hotmail/Outlook and Yahoo! Mail all require an "app password". See this link for
+NOTE1: Gmail, Hotmail/Outlook and Yahoo! Mail all require an "app password". See this link for
 an example - https://support.google.com/accounts/answer/185833  
 
 NOTE2: Be sure to review and update the phishing_terms file as required for your effort.
