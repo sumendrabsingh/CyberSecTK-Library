@@ -187,6 +187,7 @@ To process email messages.
         phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
  
 Parameters:
+
     email    (str):  Email login. Required.
     password (str):  Email password. Note, modern email services require app passwords. Required.
     server   (str):  IMAP server. This method connects via SSL port 993 only. Required.
@@ -195,9 +196,11 @@ Parameters:
     process  (int):  Number of emails to process. Default: 1, Max: 100.
 
 Returns:
+
     None
 
 Output:
+
     CSV. File will be placed in current working directory containing various phishing 
     feature extractions. The filename is dynamic to support multiple runs of this function. 
     Filename will be a combination of email address provided to function and current 
