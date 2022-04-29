@@ -1,7 +1,24 @@
 # CyberSecTK-Library
- Cyber Security feature extraction python library 
+ Cyber Security feature extraction python library
+
+ ####################### Installation ##########################
+
+Download the library, unzip it and run the following command before you install. 
+
+
+Navigate to CyberSecTK-Library-master>cybersectk
+
+Execute the following command before installation to make sure you have all the required packages are installed on your current python distribution.
+
+ <i> python setup.py develop </i>
  
- ################### WLAN IOT ########################
+ If you found some error make sure to install the missing packages. 
+ 
+ Installing the library
+
+ <i> python setup.py install </i>
+ 
+ ######################## WLAN IOT #############################
 
  Library Module name : wiot()
  
@@ -42,7 +59,7 @@ NOTE: Add the wireless PCAP file in working directory. Enter the PCAP file name 
 |Dot11Elt.len |	Length of specific Dot11Elt packet sequence payload.|
 |Dot11Elt.info	| Information of the Dot11Elt packet sequence.|
 
- ################### TCP IOT #########################
+ ######################## TCP IOT ##############################
 
 Library Module name : iot()
 
@@ -106,7 +123,7 @@ iot (**ip_filter)
 |TCPflags |	Specifies the particular state of TCP connection, fields use like SYN, ACK, FIN, RST, etc. |
 |TCPChecksum	| Detect corruption in TCP packed payload and the header.|
 
-####################### MALEWARE ###########################
+######################### MALEWARE #############################
 
 Library function name : malware()
 
@@ -150,25 +167,26 @@ https://drive.google.com/drive/folders/1_mJUvA99cHsE09UxFb1Cpyik3fVaSy0N?usp=sha
 |driverclass_31bf3856ad364e35_6 |	Windows security update installation problem.|
 |msil_system	| Security update for .NET framework service.|
 
-######################### PHISH #############################
+########################## PHISH ###############################
 
 Library function name : phish(email=None, password=None, server=None, l=False, mailbox=None, process=1)
-    The phish function produces a personal corpus of phishing features 
-    extracted from an IMAP server of the user's choice.
 
-    Example:
+The phish function produces a personal corpus of phishing features 
+extracted from an IMAP server of the user's choice.
+
+Example:
  
     from cybersectk.phish import phish
 
-    To list IMAP directories. 
+To list IMAP directories. 
  
         phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', True)
 
-    To process email messages.
+To process email messages.
 
         phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
  
-    Parameters:
+Parameters:
     email    (str):  Email login. Required.
     password (str):  Email password. Note, modern email services require app passwords. Required.
     server   (str):  IMAP server. This method connects via SSL port 993 only. Required.
@@ -176,23 +194,23 @@ Library function name : phish(email=None, password=None, server=None, l=False, m
     mailbox  (str):  Mailbox to use. Optional if l = True, else required.
     process  (int):  Number of emails to process. Default: 1, Max: 100.
 
-    Returns:
+Returns:
     None
 
-    Output:
+Output:
     CSV. File will be placed in current working directory containing various phishing 
     feature extractions. The filename is dynamic to support multiple runs of this function. 
     Filename will be a combination of email address provided to function and current 
     date time stamp. Additionally, each message email processed will be placed in a "msg"
     folder at the root of the CyberSecTK folder hierarchy. 
  
-    NOTE1: GMail, Hotmail/Outlook and Yahoo! Mail all require an "app password". See this link for
-    an example - https://support.google.com/accounts/answer/185833  
+NOTE1: GMail, Hotmail/Outlook and Yahoo! Mail all require an "app password". See this link for
+an example - https://support.google.com/accounts/answer/185833  
 
-    NOTE2: Be sure to review and update the phishing_terms file as required for your effort.
+NOTE2: Be sure to review and update the phishing_terms file as required for your effort.
 
-    **Phish Features**
-    > Feature selection is based on preliminary evaluation.
+**Phish Features**
+> Feature selection is based on preliminary evaluation.
 
 |  Features	| Description | Data Type |
 |---|---|---|
@@ -202,25 +220,10 @@ Library function name : phish(email=None, password=None, server=None, l=False, m
 |Subject | Subject field of the reviewed email.| String |
 |DKIM |	DomainKeys Identified Mail value in Authenication_Header. | String |
 |SPF |	Sender Policy Framework value in Authenication_Header.| String |
-|Anchor_HREF | The URL defined in a given <a> tag.| String |
+|Anchor_HREF | The URL defined in a given &lt;a&gt; tag.| String |
 |Weight_Gain |	A sum of the value for a given term, or key, defined in the phishing_terms file. | Integer |
 
-###################### Helpful Tips #########################
 
-Download the library, unzip it and run the following command before you install. 
-
-
-Navigate to CyberSecTK-Library-master>cybersectk
-
-Execute the following command before installation to make sure you have all the required packages are installed on your current python distribution.
-
- <i> python setup.py develop </i>
- 
- If you found some error make sure to install the missing packages. 
- 
- Installing the library
-
- <i> python setup.py install </i>
  
 
 
