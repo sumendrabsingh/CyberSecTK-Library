@@ -222,6 +222,7 @@ NOTE2: Be sure to review and update the phishing_terms file as required for your
 |Subject | Subject field of the reviewed email.| String |
 |DKIM |	DomainKeys Identified Mail value in Authenication_Header. | String |
 |SPF |	Sender Policy Framework value in Authenication_Header.| String |
+|DMARC | Domain-based Message Authentication, Reporting and Conformance value in Authentication_Header.| String |
 |Anchor_HREF | The URL defined in a given &lt;a&gt; tag.| String |
 |Weight_Gain |	A sum of the value for a given term, or key, defined in the phishing_terms file. | Integer |
 
