@@ -183,7 +183,7 @@ To list IMAP directories.
 
 To process email messages.
 
-    phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
+    phish('yuri@example.com', 'yourapppassword', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
  
 Parameters:
 
