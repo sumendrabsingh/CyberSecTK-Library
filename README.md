@@ -5,18 +5,17 @@
 
 Download the library, unzip it and run the following command before you install. 
 
-
 Navigate to CyberSecTK-Library-master>cybersectk
 
 Execute the following command before installation to make sure you have all the required packages are installed on your current python distribution.
 
- <i> python setup.py develop </i>
+    python setup.py develop
  
  If you found some error make sure to install the missing packages. 
  
  Installing the library
 
- <i> python setup.py install </i>
+    python setup.py install
  
  ######################## WLAN IOT #############################
 
@@ -24,9 +23,9 @@ Execute the following command before installation to make sure you have all the 
  
  Example:
  
- from cybersectk.wiot import wiot
+    from cybersectk.wiot import wiot
  
- wiot()
+    wiot()
  
  OUTPUT File: IOTwireless.CSV
  
@@ -65,9 +64,9 @@ Library Module name : iot()
 
 Example:
  
- from cybersectk.iot import iot
+    from cybersectk.iot import iot
  
- iot()
+    iot()
  
 OUTPUT File: label_feature_IOT.CSV
 
@@ -95,9 +94,9 @@ Please update dictionary key and value.
 
 Example: ip_filter = {} 
 
-ip_filter['TCP_Miscellaneous'] = '"tcp && (ip.src==IP_Address)"'
+    ip_filter['TCP_Miscellaneous'] = '"tcp && (ip.src==IP_Address)"'
          
-iot (**ip_filter)
+    iot (**ip_filter)
 
 **IOT Features**
 > Feature selection is based on TCP/IP packet.
@@ -129,11 +128,11 @@ Library function name : malware()
 
 Example:
  
- from cybersectk.malware import malware
+    from cybersectk.malware import malware
  
  malware()
  
- OUTPUT File : DynamicMalwareMatrix.CSV
+    OUTPUT File : DynamicMalwareMatrix.CSV
 
 Note: Please make sure to creat directory "log_files" in a same working directory and add the Good and infected CSV log files inside log_files directory for feature extraction. Make sure to name Good1.CSV, Good2.CSV and so on for the non malicious system log files. Please refer to the sample data set for better understanding. 
 
@@ -180,11 +179,11 @@ Example:
 
 To list IMAP directories. 
  
-        phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', True)
+    phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', True)
 
 To process email messages.
 
-        phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
+    phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
  
 Parameters:
 
