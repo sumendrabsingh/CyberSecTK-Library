@@ -168,20 +168,22 @@ https://drive.google.com/drive/folders/1_mJUvA99cHsE09UxFb1Cpyik3fVaSy0N?usp=sha
 
 ########################## PHISH ###############################
 
-Library function name : phish(email=None, password=None, server=None, l=False, mailbox=None, process=1)
+Library function name: 
+
+ phish(email=None, password=None, server=None, l=False, mailbox=None, process=1)
 
 The phish function produces a personal corpus of phishing features 
-extracted from an IMAP server of the user's choice.
+extracted from an IMAP server of the user's choice, for example Gmail, Hotmail or Yahoo! Mail.
 
 Example:
  
     from cybersectk.phish import phish
 
-To list IMAP directories. 
+To list IMAP directories: 
  
     phish('yuri@example.com', 'yourapppassword', 'imap.gmail.com', True)
 
-To process email messages.
+To process email messages:
 
     phish('yuri@example.com', 'yourapppassword', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
  
