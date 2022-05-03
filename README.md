@@ -179,7 +179,7 @@ Example:
 
 To list IMAP directories. 
  
-    phish('yuri@example.com', 'yourapppasswod', 'imap.gmail.com', True)
+    phish('yuri@example.com', 'yourapppassword', 'imap.gmail.com', True)
 
 To process email messages.
 
