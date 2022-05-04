@@ -1,15 +1,31 @@
 # CyberSecTK-Library
- Cyber Security feature extraction python library 
+ Cyber Security feature extraction python library
+
+ ####################### Installation ##########################
+
+Download the library, unzip it and run the following command before you install. 
+
+Navigate to CyberSecTK-Library-master>cybersectk
+
+Execute the following command before installation to make sure you have all the required packages are installed on your current python distribution.
+
+    python setup.py develop
  
- ################### WLAN IOT ########################
+ If you found some error make sure to install the missing packages. 
+ 
+ Installing the library
+
+    python setup.py install
+ 
+ ######################## WLAN IOT #############################
 
  Library Module name : wiot()
  
  Example:
  
- from cybersectk.wiot import wiot
+    from cybersectk.wiot import wiot
  
- wiot()
+    wiot()
  
  OUTPUT File: IOTwireless.CSV
  
@@ -42,15 +58,15 @@ NOTE: Add the wireless PCAP file in working directory. Enter the PCAP file name 
 |Dot11Elt.len |	Length of specific Dot11Elt packet sequence payload.|
 |Dot11Elt.info	| Information of the Dot11Elt packet sequence.|
 
- ################### TCP IOT #########################
+ ######################## TCP IOT ##############################
 
 Library Module name : iot()
 
 Example:
  
- from cybersectk.iot import iot
+    from cybersectk.iot import iot
  
- iot()
+    iot()
  
 OUTPUT File: label_feature_IOT.CSV
 
@@ -71,16 +87,16 @@ TCP_Miscellaneous
 
 Dictionary key value pair example:
 
-ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==192.168.1.216) || (ip.src==192.168.1.46) || (ip.src==192.168.1.84) \
-                     || (ip.src==192.168.1.91)'"
+ip_filter['TCP_Miscellaneous'] = '"tcp && (ip.src==192.168.1.216) || (ip.src==192.168.1.46) || (ip.src==192.168.1.84) \
+                     || (ip.src==192.168.1.91)"'
 
 Please update dictionary key and value. 
 
-Example: ip_filter {} 
+Example: ip_filter = {} 
 
-ip_filter['TCP_Miscellaneous'] = "'tcp && (ip.src==IP_Address)'"
+    ip_filter['TCP_Miscellaneous'] = '"tcp && (ip.src==IP_Address)"'
          
-iot (**ip_filter)
+    iot (**ip_filter)
 
 **IOT Features**
 > Feature selection is based on TCP/IP packet.
@@ -106,17 +122,17 @@ iot (**ip_filter)
 |TCPflags |	Specifies the particular state of TCP connection, fields use like SYN, ACK, FIN, RST, etc. |
 |TCPChecksum	| Detect corruption in TCP packed payload and the header.|
 
-####################### MALEWARE ###########################
+######################### MALEWARE #############################
 
 Library function name : malware()
 
 Example:
  
- from cybersectk.malware import malware
+    from cybersectk.malware import malware
  
  malware()
  
- OUTPUT File : DynamicMalwareMatrix.CSV
+    OUTPUT File : DynamicMalwareMatrix.CSV
 
 Note: Please make sure to creat directory "log_files" in a same working directory and add the Good and infected CSV log files inside log_files directory for feature extraction. Make sure to name Good1.CSV, Good2.CSV and so on for the non malicious system log files. Please refer to the sample data set for better understanding. 
 
@@ -150,23 +166,69 @@ https://drive.google.com/drive/folders/1_mJUvA99cHsE09UxFb1Cpyik3fVaSy0N?usp=sha
 |driverclass_31bf3856ad364e35_6 |	Windows security update installation problem.|
 |msil_system	| Security update for .NET framework service.|
 
+########################## PHISH ###############################
 
-###################### Helpful Tips #########################
+Library function name: 
 
-Download the library, unzip it and run the following command before you install. 
+    phish(email=None, password=None, server=None, l=False, mailbox=None, process=1)
 
+The phish function produces a personal corpus of phishing features 
+extracted from an IMAP server of the user's choice, for example Gmail, Hotmail or Yahoo! Mail.
 
-Navigate to CyberSecTK-Library-master>cybersectk
-
-Execute the following command before installation to make sure you have all the required packages are installed on your current python distribution.
-
- <i> python setup.py develop </i>
+Example:
  
- If you found some error make sure to install the missing packages. 
- 
- Installing the library
+    from cybersectk.phish import phish
 
- <i> python setup.py install </i>
+To list IMAP directories: 
+ 
+    phish('yuri@example.com', 'yourapppassword', 'imap.gmail.com', True)
+
+To process email messages:
+
+    phish('yuri@example.com', 'yourapppassword', 'imap.gmail.com', False, '[Gmail]/Spam', 25)
+ 
+Parameters:
+
+    email    (str):  Email login. Required.
+    password (str):  Email password. Note, modern email services require app passwords. Required.
+    server   (str):  IMAP server. This method connects via SSL port 993 only. Required.
+    l        (bool): List IMAP mailboxes to console for use with next argument. Required.
+    mailbox  (str):  Mailbox to use. Optional if l = True, else required.
+    process  (int):  Number of emails to process. Default: 1, Max: 100.
+
+Returns:
+
+    None
+
+Output:
+
+    CSV. File will be placed in current working directory containing various phishing 
+    feature extractions. The filename is dynamic to support multiple runs of this function. 
+    Filename will be a combination of email address provided to function and current 
+    date time stamp. Additionally, each message email processed will be placed in a "msg"
+    folder at the root of the CyberSecTK folder hierarchy. 
+ 
+NOTE1: Gmail, Hotmail/Outlook and Yahoo! Mail all require an "app password". See this link for
+an example - https://support.google.com/accounts/answer/185833  
+
+NOTE2: Be sure to review and update the phishing_terms file as required for your effort.
+
+**Phish Features**
+> Feature selection is based on preliminary evaluation.
+
+|  Features	| Description | Data Type |
+|---|---|---|
+|Message ID | Unique identifier for a given an email.| String |
+|From |	The 5322.From (also known as the From address or P2 sender) header value.| String |
+|To | The email address in the To header field.| String |
+|Subject | Subject field of the reviewed email.| String |
+|DKIM |	DomainKeys Identified Mail value in Authenication_Header. | String |
+|SPF |	Sender Policy Framework value in Authenication_Header.| String |
+|DMARC | Domain-based Message Authentication, Reporting and Conformance value in Authentication_Header.| String |
+|Anchor_HREF | The URL defined in a given &lt;a&gt; tag.| String |
+|Weight_Gain |	A sum of the value for a given term, or key, defined in the phishing_terms file. | Integer |
+
+
  
 
 

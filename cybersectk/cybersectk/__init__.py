@@ -1,1 +1,1 @@
-__all__= ['wiot', 'iot', 'malware']
+__all__= ['wiot', 'iot', 'malware', 'phish']
